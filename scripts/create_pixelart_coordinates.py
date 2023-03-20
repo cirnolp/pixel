@@ -13,15 +13,25 @@ Anwendung (standalone):
 (- optional: den Dateinamen der Output-Datei ersetzen (OUTPUT_FILE))
 - das Script mit python place.py in cmd ausführen
 """
+from argparse import ArgumentParser, Namespace
 
-WIDTH_OF_PIXEL = 100
-HEIGHT_OF_PIXEL = 100
-TOP_LEFT_X = 504
-TOP_LEFT_Y = 836
+parser = ArgumentParser(description='Creates a Pixelgrid with Coordinates based on user input')
+parser.add_argument('inputfile', type=str, help='Source File')
+parser.add_argument('xCoord', type=int, help='X Coordinate of top left pixel')
+parser.add_argument('yCoord', type=int, help='Y Coordinate of top left pixel')
+parser.add_argument('--width', type=int, help='Width of single Pixel on Image', default='100')
+parser.add_argument('--height', type=int, help='Height of single Pixel on Image', default='100')
+parser.add_argument('-o', '--outputfile', type=str, help='Define Output file name')
+
+args: Namespace = parser.parse_args()
+WIDTH_OF_PIXEL = args.width
+HEIGHT_OF_PIXEL = args.height
+TOP_LEFT_X = args.xCoord
+TOP_LEFT_Y = args.yCoord
 OFFSET_LEFT = 0
 OFFSET_TOP = 0
-INPUT_FILE = "lowenzahn.png"
-OUTPUT_FILE = "output.png"
+INPUT_FILE = args.inputfile 
+OUTPUT_FILE = "output.png" if not args.outputfile else args.outputfile
 IGNORE_COLORS = []
 
 from PIL import Image
