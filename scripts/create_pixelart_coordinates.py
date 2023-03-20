@@ -7,11 +7,8 @@ Anwendung (standalone):
 - cmd in dem Pfad öffnen
 - pip install Pillow schreiben
 - das Bild in den gleichen Ordner packen, und so skalieren, dass ein Pixel etwa 100x100 Pixel groß ist.
-- die place.py Datei öffnen und die Pixelgröße in WIDTH_OF_PIXEL und HEIGHT_OF_PIXEL anpassen
-- die Links oberste Koordinate raussuchen und entsprechend in TOP_LEFT_X und TOP_LEFT_Y eingeben
-- den Dateinamen des Bildes ersetzen (INPUT_FILE)
-(- optional: den Dateinamen der Output-Datei ersetzen (OUTPUT_FILE))
-- das Script mit python place.py in cmd ausführen
+- die place.py Datei ausführen, den Pfad zum Bild eingeben und die Koordinaten des oberen linken Pixels als zweites (X) und drittes (Y) Argument anfügen
+(- optional: den Dateinamen der Output-Datei mit -o 'x.png' vorgeben)
 """
 from argparse import ArgumentParser, Namespace
 
